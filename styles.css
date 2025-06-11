@@ -1,0 +1,205 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f5f5f5;
+}
+
+.calendar-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    max-width: 800px;
+}
+
+.calendar-header {
+    background-color: #4361ee;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calendar-header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.calendar-header button {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 18px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.calendar-header button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: #7289da;
+    color: white;
+}
+
+.weekdays div {
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    background-color: #eee;
+}
+
+.days div {
+    background-color: white;
+    min-height: 80px;
+    padding: 5px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.days div:hover {
+    background-color: #f0f0f0;
+}
+
+.days div span.date {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #f1f1f1;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.days div.empty {
+    background-color: #f9f9f9;
+    cursor: default;
+}
+
+.days div.today {
+    background-color: #ffedbc;
+}
+
+.days div.today span.date {
+    background-color: #4361ee;
+    color: white;
+}
+
+.sunday span.date {
+    color: #e63946;
+}
+
+.saturday span.date {
+    color: #4361ee;
+}
+
+/* 메모 표시 스타일 */
+.memo-indicator {
+    margin-top: 30px;
+    padding: 3px;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: #e6f7ff;
+    border-radius: 3px;
+    border-left: 3px solid #1890ff;
+}
+
+/* 모달 스타일 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    max-width: 500px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+#memo-text {
+    width: 100%;
+    height: 150px;
+    margin: 15px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+    font-family: inherit;
+}
+
+#save-memo {
+    background-color: #4361ee;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#save-memo:hover {
+    background-color: #3a56d4;
+}
+
+@media screen and (max-width: 768px) {
+    .days div {
+        min-height: 60px;
+        font-size: 14px;
+    }
+    
+    .modal-content {
+        margin: 20% auto;
+        width: 90%;
+    }
+}
